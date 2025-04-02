@@ -15,12 +15,15 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import { Box as MuiBox } from '@mui/material';
 
+// Get the base URL from Vite's environment
+const baseUrl = import.meta.env.BASE_URL;
+
 const pages = [
-  { title: 'Equipment', path: '/equipment' },
-  { title: 'Buy', path: '/buy' },
-  { title: 'Pricing', path: '/pricing' },
-  { title: 'Book Now', path: '/booking' },
-  { title: 'Contact', path: '/contact' },
+  { title: 'Equipment', path: `${baseUrl}equipment` },
+  { title: 'Buy', path: `${baseUrl}buy` },
+  { title: 'Pricing', path: `${baseUrl}pricing` },
+  { title: 'Book Now', path: `${baseUrl}booking` },
+  { title: 'Contact', path: `${baseUrl}contact` },
 ];
 
 function Navbar() {
@@ -34,15 +37,12 @@ function Navbar() {
     setAnchorElNav(null);
   };
 
-  // Get the base URL from Vite's environment
-  const baseUrl = import.meta.env.BASE_URL;
-
   return (
     <AppBar position="sticky" color="default" elevation={2}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Desktop Logo */}
-          <RouterLink to="/" style={{ textDecoration: 'none' }}>
+          <RouterLink to={baseUrl} style={{ textDecoration: 'none' }}>
             <MuiBox
               component="img"
               src={`${baseUrl}images/logo.png`}
@@ -100,7 +100,7 @@ function Navbar() {
           </Box>
 
           {/* Mobile Logo */}
-          <RouterLink to="/" style={{ textDecoration: 'none', flexGrow: 1 }}>
+          <RouterLink to={baseUrl} style={{ textDecoration: 'none', flexGrow: 1 }}>
             <MuiBox
               component="img"
               src={`${baseUrl}images/logo.png`}

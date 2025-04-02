@@ -11,17 +11,20 @@ import Booking from './pages/Booking';
 import BuyForklift from './pages/BuyForklift';
 
 function App() {
+  // Get the base URL from Vite's environment
+  const baseUrl = import.meta.env.BASE_URL;
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Navbar />
       <Box component="main" sx={{ flexGrow: 1 }}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/equipment" element={<Equipment />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/booking" element={<Booking />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/buy" element={<BuyForklift />} />
+          <Route path={baseUrl} element={<Home />} />
+          <Route path={`${baseUrl}equipment`} element={<Equipment />} />
+          <Route path={`${baseUrl}pricing`} element={<Pricing />} />
+          <Route path={`${baseUrl}booking`} element={<Booking />} />
+          <Route path={`${baseUrl}contact`} element={<Contact />} />
+          <Route path={`${baseUrl}buy`} element={<BuyForklift />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Box>
