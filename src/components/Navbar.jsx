@@ -39,17 +39,20 @@ function Navbar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Desktop Logo */}
-          <MuiBox
-            component="img"
-            src="/images/logo.png"
-            alt="Forklift Hire Solutions"
-            sx={{
-              display: { xs: 'none', md: 'flex' },
-              height: 80,
-              mr: 4,
-              ml: 3
-            }}
-          />
+          <RouterLink to="/" style={{ textDecoration: 'none' }}>
+            <MuiBox
+              component="img"
+              src="/images/logo.png"
+              alt="Forklift Hire Solutions"
+              sx={{
+                display: { xs: 'none', md: 'flex' },
+                height: 80,
+                mr: 4,
+                ml: 3,
+                cursor: 'pointer'
+              }}
+            />
+          </RouterLink>
 
           {/* Mobile Menu */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -94,18 +97,20 @@ function Navbar() {
           </Box>
 
           {/* Mobile Logo */}
-          <MuiBox
-            component="img"
-            src="/images/logo.png"
-            alt="Forklift Hire Solutions"
-            sx={{
-              display: { xs: 'flex', md: 'none' },
-              height: 65,
-              mr: 3,
-              ml: 2,
-              flexGrow: 1
-            }}
-          />
+          <RouterLink to="/" style={{ textDecoration: 'none', flexGrow: 1 }}>
+            <MuiBox
+              component="img"
+              src="/images/logo.png"
+              alt="Forklift Hire Solutions"
+              sx={{
+                display: { xs: 'flex', md: 'none' },
+                height: 65,
+                mr: 3,
+                ml: 2,
+                cursor: 'pointer'
+              }}
+            />
+          </RouterLink>
 
           {/* Desktop Menu */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
