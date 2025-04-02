@@ -19,11 +19,11 @@ import { Box as MuiBox } from '@mui/material';
 const baseUrl = import.meta.env.BASE_URL;
 
 const pages = [
-  { title: 'Equipment', path: `${baseUrl}equipment` },
-  { title: 'Buy', path: `${baseUrl}buy` },
-  { title: 'Pricing', path: `${baseUrl}pricing` },
-  { title: 'Book Now', path: `${baseUrl}booking` },
-  { title: 'Contact', path: `${baseUrl}contact` },
+  { title: 'Equipment', path: '/equipment' },
+  { title: 'Buy', path: '/buy' },
+  { title: 'Pricing', path: '/pricing' },
+  { title: 'Book Now', path: '/booking' },
+  { title: 'Contact', path: '/contact' },
 ];
 
 function Navbar() {
@@ -42,7 +42,7 @@ function Navbar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Desktop Logo */}
-          <RouterLink to={baseUrl} style={{ textDecoration: 'none' }}>
+          <RouterLink to="/" style={{ textDecoration: 'none' }}>
             <MuiBox
               component="img"
               src={`${baseUrl}images/logo.png`}
@@ -100,7 +100,7 @@ function Navbar() {
           </Box>
 
           {/* Mobile Logo */}
-          <RouterLink to={baseUrl} style={{ textDecoration: 'none', flexGrow: 1 }}>
+          <RouterLink to="/" style={{ textDecoration: 'none', flexGrow: 1 }}>
             <MuiBox
               component="img"
               src={`${baseUrl}images/logo.png`}
