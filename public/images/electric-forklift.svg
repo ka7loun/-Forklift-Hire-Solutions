@@ -1,0 +1,24 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .forklift { fill: #4caf50; }
+    .forks { fill: #424242; }
+    .wheels { fill: #212121; }
+    .cabin { fill: #81c784; }
+    .eco { fill: #c8e6c9; }
+  </style>
+  <!-- Main body -->
+  <rect class="forklift" x="60" y="80" width="100" height="60" rx="8"/>
+  <!-- Forks -->
+  <rect class="forks" x="20" y="120" width="40" height="8"/>
+  <rect class="forks" x="20" y="90" width="40" height="8"/>
+  <!-- Lift mechanism -->
+  <rect class="forks" x="50" y="70" width="8" height="80"/>
+  <!-- Sleek wheels -->
+  <circle class="wheels" cx="70" cy="150" r="12"/>
+  <circle class="wheels" cx="140" cy="150" r="12"/>
+  <!-- Modern cabin -->
+  <rect class="cabin" x="120" y="40" width="40" height="45" rx="8"/>
+  <!-- Eco indicator -->
+  <circle class="eco" cx="150" cy="60" r="8"/>
+  <path class="forklift" d="M146,56 l8,8 M146,64 l8,-8" stroke="#4caf50" stroke-width="2"/>
+</svg>
