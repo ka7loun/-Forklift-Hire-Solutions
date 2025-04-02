@@ -34,6 +34,9 @@ function Navbar() {
     setAnchorElNav(null);
   };
 
+  // Get the base URL from Vite's environment
+  const baseUrl = import.meta.env.BASE_URL;
+
   return (
     <AppBar position="sticky" color="default" elevation={2}>
       <Container maxWidth="xl">
@@ -42,7 +45,7 @@ function Navbar() {
           <RouterLink to="/" style={{ textDecoration: 'none' }}>
             <MuiBox
               component="img"
-              src="/images/logo.png"
+              src={`${baseUrl}images/logo.png`}
               alt="Forklift Hire Solutions"
               sx={{
                 display: { xs: 'none', md: 'flex' },
@@ -100,7 +103,7 @@ function Navbar() {
           <RouterLink to="/" style={{ textDecoration: 'none', flexGrow: 1 }}>
             <MuiBox
               component="img"
-              src="/images/logo.png"
+              src={`${baseUrl}images/logo.png`}
               alt="Forklift Hire Solutions"
               sx={{
                 display: { xs: 'flex', md: 'none' },
