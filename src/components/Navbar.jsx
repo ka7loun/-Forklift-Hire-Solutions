@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import {
   AppBar,
   Box,
@@ -18,6 +18,13 @@ import { Box as MuiBox } from '@mui/material';
 // Get the base URL from Vite's environment
 const baseUrl = import.meta.env.BASE_URL;
 
+const servicePages = [
+  '/forklift-hire',
+  '/transport-removals',
+  '/forklift-sales',
+  '/recruitment'
+];
+
 const pages = [
   { title: 'Equipment', path: '/equipment' },
   { title: 'Buy', path: '/buy' },
@@ -28,6 +35,8 @@ const pages = [
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
+  const location = useLocation();
+  const isServicePage = servicePages.includes(location.pathname);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -49,10 +58,15 @@ function Navbar() {
               alt="Forklift Hire Solutions"
               sx={{
                 display: { xs: 'none', md: 'flex' },
-                height: 80,
+                height: 100,
                 mr: 4,
                 ml: 3,
-                cursor: 'pointer'
+                cursor: 'pointer',
+                filter: 'drop-shadow(0px 2px 4px rgba(0,0,0,0.1))',
+                transition: 'transform 0.2s ease-in-out',
+                '&:hover': {
+                  transform: 'scale(1.05)'
+                }
               }}
             />
           </RouterLink>
@@ -86,16 +100,26 @@ function Navbar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
+              {isServicePage ? (
                 <MenuItem
-                  key={page.title}
                   onClick={handleCloseNavMenu}
                   component={RouterLink}
-                  to={page.path}
+                  to="/#services"
                 >
-                  <Typography textAlign="center">{page.title}</Typography>
+                  <Typography textAlign="center">Back to Services</Typography>
                 </MenuItem>
-              ))}
+              ) : (
+                pages.map((page) => (
+                  <MenuItem
+                    key={page.title}
+                    onClick={handleCloseNavMenu}
+                    component={RouterLink}
+                    to={page.path}
+                  >
+                    <Typography textAlign="center">{page.title}</Typography>
+                  </MenuItem>
+                ))
+              )}
             </Menu>
           </Box>
 
@@ -107,21 +131,25 @@ function Navbar() {
               alt="Forklift Hire Solutions"
               sx={{
                 display: { xs: 'flex', md: 'none' },
-                height: 65,
+                height: 80,
                 mr: 3,
                 ml: 2,
-                cursor: 'pointer'
+                cursor: 'pointer',
+                filter: 'drop-shadow(0px 2px 4px rgba(0,0,0,0.1))',
+                transition: 'transform 0.2s ease-in-out',
+                '&:hover': {
+                  transform: 'scale(1.05)'
+                }
               }}
             />
           </RouterLink>
 
           {/* Desktop Menu */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
-            {pages.map((page) => (
+            {isServicePage ? (
               <Button
-                key={page.title}
                 component={RouterLink}
-                to={page.path}
+                to="/#services"
                 onClick={handleCloseNavMenu}
                 sx={{
                   my: 2,
@@ -133,9 +161,29 @@ function Navbar() {
                   },
                 }}
               >
-                {page.title}
+                Back to Services
               </Button>
-            ))}
+            ) : (
+              pages.map((page) => (
+                <Button
+                  key={page.title}
+                  component={RouterLink}
+                  to={page.path}
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    my: 2,
+                    mx: 1,
+                    color: 'secondary.main',
+                    display: 'block',
+                    '&:hover': {
+                      color: 'primary.main',
+                    },
+                  }}
+                >
+                  {page.title}
+                </Button>
+              ))
+            )}
           </Box>
         </Toolbar>
       </Container>
