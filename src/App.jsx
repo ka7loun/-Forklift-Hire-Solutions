@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import { Box } from '@mui/material';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -17,6 +18,7 @@ import TemporaryRecruitment from './pages/TemporaryRecruitment';
 function App() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <ScrollToTop />
       <Navbar />
       <Box component="main" sx={{ flexGrow: 1 }}>
         <Routes>
